@@ -5,7 +5,7 @@ const webrtc = new SimpleWebRTC({
     localVideoEl: 'localVideo',
     remoteVideosEl: '',
     autoRequestMedia: true,
-    url: 'http://10.1.13.102:8888'
+    url: 'https://portal.glesys.io:8888'
 });
 
 
