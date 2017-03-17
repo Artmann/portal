@@ -27,7 +27,7 @@ class FaceDetector {
         clearTimeout(this.timeout);
         this.timeout = setTimeout(() => {
             this.deactivateFn();
-        }, 2000)
+        }, 30 * 1000)
     }
 };
 
