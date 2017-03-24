@@ -9,6 +9,7 @@ router
     const key = localStorage.getItem(`portal-${params.id}`);
     if (!key) {
         router.navigate('/');
+        return;
     }
     const room = new Room(params.id, key);
   })

@@ -1,5 +1,6 @@
 const SimpleWebRTC = require('simplewebrtc');
 const FaceDetector = require('./face-detector');
+const md5 = require('blueimp-md5');
 
 class Room {
     constructor(roomName, key) {
@@ -14,7 +15,10 @@ class Room {
         });
         this.fd = new FaceDetector(this.mute.bind(this), this.unmute.bind(this));
 
-        this.webrtc.on('readyToCall', () => { this.webrtc.joinRoom(this.roomName); });
+        this.webrtc.on('readyToCall', () => { 
+            const name = md5(`${this.roomName}-${this.key}`);
+            this.webrtc.joinRoom(name);
+        });
         this.webrtc.on('videoAdded', this.onVideoAdded.bind(this));
         this.webrtc.on('videoRemoved', this.onVideoRemoved.bind(this));
     }
