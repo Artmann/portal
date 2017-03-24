@@ -2,8 +2,10 @@ const SimpleWebRTC = require('simplewebrtc');
 const FaceDetector = require('./face-detector');
 
 class Room {
-    constructor(roomName) {
+    constructor(roomName, key) {
         this.roomName = roomName;
+        this.key = key;
+
         this.webrtc = new SimpleWebRTC({
             localVideoEl: 'localVideo',
             remoteVideosEl: '',
