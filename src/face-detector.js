@@ -4,7 +4,7 @@ class FaceDetector {
         this.deactivateFn = deactivateFn;
 
         const tracker = new tracking.ObjectTracker("face");
-        tracker.setInitialScale(4);
+        tracker.setInitialScale(2.5);
         tracker.setStepSize(2);
         tracker.setEdgesDensity(0.1);
 
