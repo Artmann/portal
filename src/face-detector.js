@@ -1,7 +1,8 @@
 class FaceDetector {
-    constructor(activateFn, deactivateFn) {
+    constructor(activateFn, deactivateFn, detectionStatusFn) {
         this.activateFn = activateFn;
         this.deactivateFn = deactivateFn;
+        this.detectionStatusFn = detectionStatusFn
 
         const tracker = new tracking.ObjectTracker("face");
         tracker.setInitialScale(2.5);
@@ -16,6 +17,9 @@ class FaceDetector {
         if (event.data.length > 0) {
             this.activate();
             this.scheduleDeactivation();
+            this.detectionStatusFn(true);
+        } else {
+            this.detectionStatusFn(false);
         }
     }
 

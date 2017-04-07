@@ -15,11 +15,15 @@ body {
     right: 20px;
     bottom: 20px;
     z-index: 10;
-    border: solid 4px red;
+    border: dotted 4px red;
 }
 
 #localVideo.active {
     border-color: green;
+}
+
+#localVideo.detected {
+    border-style: solid;
 }
 
 .remotes {

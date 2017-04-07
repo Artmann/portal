@@ -20,7 +20,11 @@ class Room {
               }
             }
         });
-        this.fd = new FaceDetector(this.mute.bind(this), this.unmute.bind(this));
+        this.fd = new FaceDetector(
+            this.mute.bind(this),
+            this.unmute.bind(this),
+            this.faceDetectionStatus.bind(this)
+          );
 
         this.webrtc.on('readyToCall', () => {
             const name = md5(`${this.roomName}-${this.key}`);
@@ -64,6 +68,14 @@ class Room {
     unmute() {
         $('#localVideo').removeClass('active');
         this.webrtc.mute();
+    }
+
+    faceDetectionStatus(isDetected) {
+      if (isDetected) {
+        $("#localVideo").addClass('detected');
+      } else {
+        $("#localVideo").removeClass('detected');
+      }
     }
 
     resizeVideos() {
