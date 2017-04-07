@@ -11,7 +11,7 @@ class Room {
             localVideoEl: 'localVideo',
             remoteVideosEl: '',
             autoRequestMedia: true,
-            url: 'https://portal.glesys.io:8888',
+            url: 'https://portal.artmann.co:8888',
             media: {
               audio: true,
               video: {
