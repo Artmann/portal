@@ -11,7 +11,7 @@ body {
 #localVideo {
     position: absolute;
     width: 320px;
-    height: 240px;
+    height: 180px;
     right: 20px;
     bottom: 20px;
     z-index: 10;
@@ -39,7 +39,7 @@ body {
 
 .select-room {
     background: #2E4B64;
-    width: 90%; 
+    width: 90%;
     max-width: 300px;
     padding: 40px;
     margin: 4em auto;

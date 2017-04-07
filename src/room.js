@@ -11,11 +11,18 @@ class Room {
             localVideoEl: 'localVideo',
             remoteVideosEl: '',
             autoRequestMedia: true,
-            url: 'https://portal.glesys.io:8888'
+            url: 'https://portal.glesys.io:8888',
+            media: {
+              audio: true,
+              video: {
+                width: 1280,
+                height: 720
+              }
+            }
         });
         this.fd = new FaceDetector(this.mute.bind(this), this.unmute.bind(this));
 
-        this.webrtc.on('readyToCall', () => { 
+        this.webrtc.on('readyToCall', () => {
             const name = md5(`${this.roomName}-${this.key}`);
             this.webrtc.joinRoom(name);
         });
@@ -41,7 +48,7 @@ class Room {
             container.className = 'videoContainer';
             container.id = 'container_' + this.webrtc.getDomId(peer);
             container.appendChild(video);
-            
+
             video.oncontextmenu = function () { return false; };
             remotes.appendChild(container);
 
