@@ -2,12 +2,12 @@ class FaceDetector {
     constructor(activateFn, deactivateFn) {
         this.activateFn = activateFn;
         this.deactivateFn = deactivateFn;
-        
+
         const tracker = new tracking.ObjectTracker("face");
         tracker.setInitialScale(4);
         tracker.setStepSize(2);
         tracker.setEdgesDensity(0.1);
-        
+
         tracking.track('#localVideo', tracker);
         tracker.on('track', this.onTrack.bind(this));
     }
@@ -27,7 +27,7 @@ class FaceDetector {
         clearTimeout(this.timeout);
         this.timeout = setTimeout(() => {
             this.deactivateFn();
-        }, 3 * 1000)
+        }, 30 * 1000)
     }
 };
 
